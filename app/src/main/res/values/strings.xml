@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">BigApp_FMarket_Locator</string>
+    <string name="app_name">FarmMarketLocator</string>
+    <string name="ChooseLocation">Choose Location</string>
 </resources>
