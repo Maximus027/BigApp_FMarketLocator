@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -16,10 +17,14 @@
         android:gravity="center">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:text="@string/ChooseLocation"
-            android:textSize="18sp"
+            android:textAlignment="textStart"
+            android:typeface="serif"
+            android:textStyle="bold"
+            android:textColor="#503505"
+            android:textSize="19sp"
             android:gravity="center"
             android:includeFontPadding="false"
             android:layout_marginBottom="10dp"/>
@@ -33,17 +38,18 @@
                 <Spinner
                     android:id="@+id/planets_spinner"
                     android:entries="@array/boroughs"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="0dp"
                     android:layout_marginEnd="10dp"
                     android:textAlignment="center"
-                    android:background="#ffffff"/>
+                    android:background="#b7ad92"/>
                 <Button
                     android:id="@+id/next_bt"
                     android:layout_width="55dp"
-                    android:layout_height="35dp"
-                    android:text="GO" />
-
+                    android:layout_height="30dp"
+                    android:text="GO"
+                    android:background="#b7ad92"/>
 
         </LinearLayout>
     </LinearLayout>
