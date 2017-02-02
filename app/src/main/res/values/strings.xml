@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">FarmMarketLocator</string>
     <string name="ChooseLocation">Choose Location</string>
+    <string-array name="boroughs">
+        <item>Queens</item>
+        <item>Brooklyn</item>
+        <item>Bronx</item>
+        <item>Manhattan</item>
+        <item>Staten Island</item>
+    </string-array>
 </resources>
