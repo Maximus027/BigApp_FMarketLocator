@@ -8,11 +8,6 @@
 
     tools:context="com.example.bigapp_fmarket_locator.MainActivity">
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_margin="10dp"-->
-        <!--android:background="#865700">-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,6 +44,7 @@
                     android:id="@+id/next_bt"
                     android:layout_width="55dp"
                     android:layout_height="35dp"
+                    android:onClick=""
                     android:text="GO"/>
 
             </LinearLayout>
