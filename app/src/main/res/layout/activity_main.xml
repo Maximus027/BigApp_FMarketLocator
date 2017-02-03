@@ -21,10 +21,8 @@
             android:layout_height="wrap_content"
             android:text="@string/ChooseLocation"
             android:textAlignment="textStart"
-            android:typeface="serif"
-            android:textStyle="bold"
             android:textColor="#503505"
-            android:textSize="19sp"
+            android:textSize="23sp"
             android:gravity="center"
             android:includeFontPadding="false"
             android:layout_marginBottom="10dp"/>
@@ -43,13 +41,14 @@
                     android:layout_marginStart="0dp"
                     android:layout_marginEnd="10dp"
                     android:textAlignment="center"
-                    android:background="#b7ad92"/>
+                    android:background="#b7ad92" />
                 <Button
                     android:id="@+id/next_bt"
                     android:layout_width="55dp"
                     android:layout_height="30dp"
+                    android:textColor="#ffffff"
                     android:text="GO"
-                    android:background="#b7ad92"/>
+                    android:background="#8A7951"/>
 
         </LinearLayout>
     </LinearLayout>
