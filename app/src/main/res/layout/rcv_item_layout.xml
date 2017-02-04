@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,7 +26,7 @@
             android:paddingBottom="0dp"
             android:textSize="23sp"
             android:textColor="#ffffff"
-            android:text="Fresh Farm Market"/>
+            tools:text="Fresh Farm Market"/>
 
         <TextView
             android:id="@+id/borough_name_tv"
@@ -37,7 +38,7 @@
             android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:text="Staten Island"/>
+            tools:text="Staten Island"/>
 
     </LinearLayout>
 
