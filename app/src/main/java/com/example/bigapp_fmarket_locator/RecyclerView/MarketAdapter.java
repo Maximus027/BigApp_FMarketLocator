@@ -2,34 +2,34 @@ package com.example.bigapp_fmarket_locator.RecyclerView;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bigapp_fmarket_locator.R;
 import com.example.bigapp_fmarket_locator.Retrofit.MainJSONObjects;
-
-import java.util.List;
 
 /**
  * Created by maxrosado on 2/1/17.
  */
 
 public class MarketAdapter extends RecyclerView.Adapter {
-    public List<MainJSONObjects> markets;
+    public MainJSONObjects[] markets;
 
-    public MarketAdapter(List<MainJSONObjects> markets) {
+    public MarketAdapter(MainJSONObjects[] markets) {
         this.markets = markets;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MarketViewHolder(LayoutInflater
-        .from(parent.getContext())
-                .inflate(R.layout.rcv_item_layout, parent, false));
+        View view = LayoutInflater
+                .from(parent.getContext())
+                .inflate(R.layout.rcv_item_layout, parent, false);
+        return new MarketViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        MainJSONObjects market = markets.get(position);
+        MainJSONObjects market = markets[position];
         MarketViewHolder marketViewHolder = (MarketViewHolder) holder;
         marketViewHolder.bind(market);
     }
@@ -37,7 +37,7 @@ public class MarketAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         if (markets == null) return 0;
-        return markets.size();
+        return markets.length;
     }
 }
 

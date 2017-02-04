@@ -5,32 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     tools:context="com.example.bigapp_fmarket_locator.MainActivity">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg3green"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ChooseLocation"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:layout_marginBottom="10dp"/>
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="10dp"
-            android:background="@drawable/bg3"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ChooseLocation"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:layout_marginBottom="10dp"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
                 <Spinner
                     android:id="@+id/planets_spinner"
@@ -44,10 +43,8 @@
                     android:id="@+id/next_bt"
                     android:layout_width="55dp"
                     android:layout_height="35dp"
-                    android:onClick=""
+                    android:onClick="startMarketActivity"
                     android:text="GO"/>
-
-            </LinearLayout>
-        <!--</LinearLayout>-->
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
