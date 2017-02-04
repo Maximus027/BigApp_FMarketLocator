@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Spinner;
 
+import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity {
     public String borough = "";
@@ -26,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar_icon, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 }
 

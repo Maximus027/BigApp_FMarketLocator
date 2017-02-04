@@ -23,13 +23,15 @@ import retrofit2.Response;
 public class MarketListActivity extends AppCompatActivity {
     private APIService apiService;
     private static final String TAG = MarketListActivity.class.getName();
-    private RecyclerView recyclerView = (RecyclerView) findViewById(R.id.market_rv);
+    private RecyclerView recyclerView;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_layout);
+        recyclerView = (RecyclerView) findViewById(R.id.market_rv);
 
         Intent intent = getIntent();
         String borough = intent.getStringExtra(getResources().getString(R.string.chosen_borough_key));

@@ -22,14 +22,12 @@ public class MarketViewHolder extends RecyclerView.ViewHolder {
 
     public MarketViewHolder(View itemView) {
         super(itemView);
-        //// TODO: 2/3/17 find views\
         tv1 = (TextView) itemView.findViewById(R.id.market_name_tv);
         tv2 = (TextView) itemView.findViewById(R.id.borough_name_tv);
 
     }
 
     public void bind(final MainJSONObjects market) {
-        //// TODO: 2/3/17 assigning values to views
         //// TODO: set click listener to view. on click send to new activity send object using parcelable
         //// TODO: 2/3/17 (parceler) parcel library for android
 
