@@ -11,9 +11,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //lambda import
-        jackOptions {
-            enabled true
-        }
+//        jackOptions {
+//            enabled true
+//        }
     }
     buildTypes {
         release {
@@ -22,8 +22,8 @@ android {
         }
     }
     compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
+        targetCompatibility 1.7
+        sourceCompatibility 1.7
     }
 }
 
@@ -34,6 +34,10 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.google.android.gms:play-services:8.4.0'
+//    compile 'com.google.android.gms:play-services-maps:8.4.0'
+//    compile 'com.google.android.gms:play-services-location:8.4.0'
+//    compile 'com.google.android.gms:play-services-base:8.4.0'
+//    compile 'com.google.android.gms:play-services-gcm:8.4.0'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.android.support:recyclerview-v7:25.0.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'

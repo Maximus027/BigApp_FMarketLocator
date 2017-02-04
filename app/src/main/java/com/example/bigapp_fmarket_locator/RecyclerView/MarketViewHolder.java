@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.bigapp_fmarket_locator.MapsActivity;
 import com.example.bigapp_fmarket_locator.R;
 import com.example.bigapp_fmarket_locator.Retrofit.MainJSONObjects;
 
@@ -41,9 +42,11 @@ public class MarketViewHolder extends RecyclerView.ViewHolder {
             tv2.setText(boroughName);
         }
 
-
-
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MapsActivity.startActivity(v.getContext(), vhMarket.getStreetAddress());
+            }
+        });
     }
-
-
 }
