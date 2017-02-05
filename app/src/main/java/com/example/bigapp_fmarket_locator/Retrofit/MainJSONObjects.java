@@ -5,18 +5,18 @@ package com.example.bigapp_fmarket_locator.Retrofit;
  */
 
 public class MainJSONObjects {
-    public String acceptsHealthBucks;
+    public String accepts_health_bucks;
     public String borough;
-    public String dayS;
-    public String distributeHealthBucks;
+    public String day_s;
+    public String distribute_health_bucks;
     public String ebt;
     public String hours;
-    public String marketName;
+    public String market_name;
     public String stellar;
-    public String streetAddress;
+    public String street_address;
 
     public String getAcceptsHealthBucks() {
-        return acceptsHealthBucks;
+        return accepts_health_bucks;
     }
 
     public String getBorough() {
@@ -24,11 +24,11 @@ public class MainJSONObjects {
     }
 
     public String getDayS() {
-        return dayS;
+        return day_s;
     }
 
     public String getDistributeHealthBucks() {
-        return distributeHealthBucks;
+        return distribute_health_bucks;
     }
 
     public String getEbt() {
@@ -40,7 +40,7 @@ public class MainJSONObjects {
     }
 
     public String getMarketName() {
-        return marketName;
+        return market_name;
     }
 
     public String getStellar() {
@@ -48,6 +48,6 @@ public class MainJSONObjects {
     }
 
     public String getStreetAddress() {
-        return streetAddress;
+        return street_address;
     }
 }

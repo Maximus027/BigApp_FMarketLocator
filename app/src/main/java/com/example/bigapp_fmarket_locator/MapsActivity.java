@@ -1,5 +1,4 @@
 package com.example.bigapp_fmarket_locator;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -13,23 +12,25 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
+import com.example.bigapp_fmarket_locator.Retrofit.APIService;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
+
 import java.io.IOException;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+
 
     private GoogleMap mMap;
     private GoogleApiClient mgoogleApiClient;

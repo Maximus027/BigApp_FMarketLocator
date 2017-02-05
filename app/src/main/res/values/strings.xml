@@ -2,6 +2,7 @@
     <string name="title_activity_maps">Map</string>
     <string name="app_name">Farm Market Locator</string>
     <string name="ChooseLocation">Choose Location</string>
+    <string name="chosen_borough_key">borough key</string>
     <string-array name="boroughs">
         <item>Queens</item>
         <item>Brooklyn</item>
