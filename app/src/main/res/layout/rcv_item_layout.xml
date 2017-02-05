@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingTop="25dp">
+    android:paddingTop="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,13 +18,12 @@
         <TextView
             android:id="@+id/market_name_tv"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:paddingBottom="0dp"
+            android:layout_height="wrap_content"
             android:paddingEnd="10dp"
             android:paddingStart="20dp"
             android:paddingTop="13dp"
-            android:textColor="#ffffff"
-            android:textSize="23sp"
+            android:textColor="#8A7951"
+            android:textSize="20sp"
             tools:text="Fresh Farm Market" />
 
         <TextView
@@ -34,7 +33,7 @@
             android:paddingBottom="4dp"
             android:paddingEnd="10dp"
             android:paddingStart="20dp"
-            android:textColor="#ffffff"
+            android:textColor="#8A7951"
             android:textSize="18sp"
             android:textStyle="bold"
             tools:text="Staten Island" />

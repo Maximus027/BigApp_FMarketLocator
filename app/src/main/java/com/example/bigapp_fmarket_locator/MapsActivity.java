@@ -1,4 +1,5 @@
 package com.example.bigapp_fmarket_locator;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -11,9 +12,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -26,9 +30,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
-
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
@@ -59,27 +63,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Button button = (Button) findViewById(R.id.find_location_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String location = et.getText().toString();
+                Log.d("location", "geoLocate: "+location);
+                try {
+                    geoLocateByString(location);
+                }catch(IllegalStateException e){
+                    Log.d("location", "geoLocate: " +e);
+                }
+            }
+        });
+
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         gotToLocationZoom(40.739194, -73.930890, 15);
-
-        mgoogleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(LocationServices.API)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .build();
-        mgoogleApiClient.connect();
-
-//        if (marketName != null) {
-//            try {
-//                geoLocateByString(marketName);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
     }
 
     public void gotToLocation(double lat, double lng) {
@@ -95,22 +99,47 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(update);
     }
 
-    public void geoLocate(View view) throws IOException {
-        String location = et.getText().toString();
-        geoLocateByString(location);
-    }
+    void geoLocateByString(String location)  {
 
-    void geoLocateByString(String location) throws IOException {
-        Geocoder gc = new Geocoder(this);
-        List<Address> list = gc.getFromLocationName(location, 1);
-        Address address = list.get(0);
-        String locality = address.getLocality();
+        Geocoder geocoder = new Geocoder(this, Locale.ENGLISH);
+        double LATITUDE = 40.730610;
+        double LONGITUDE = -73.935242;
 
-        Toast.makeText(this, locality, Toast.LENGTH_LONG).show();
+        String address = "";
 
-        double lat = address.getLatitude();
-        double lng = address.getLongitude();
-        gotToLocationZoom(lat, lng, 15);
+        try {
+            List<Address> addresses = geocoder.getFromLocation(LATITUDE,LONGITUDE, 1);
+
+            if(addresses != null && addresses.size() > 0) {
+                Address returnedAddress = addresses.get(0);
+                Log.d("LAT2", returnedAddress.getLatitude()+"");
+
+                StringBuilder strReturnedAddress = new StringBuilder(location +" ");
+                for(int i=0; i<returnedAddress.getMaxAddressLineIndex(); i++) {
+                    strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
+                }
+
+                Log.d("RESULT", strReturnedAddress.toString());
+                address = strReturnedAddress.toString();
+
+                Log.d("locality", "geoLocateByString: " +returnedAddress.getLocality());
+
+                Toast.makeText(this, address , Toast.LENGTH_LONG).show();
+
+                double lat = returnedAddress.getLatitude();
+                Log.d("LAT", returnedAddress.getLatitude()+"");
+                double lng = returnedAddress.getLongitude();
+                gotToLocationZoom(lat, lng, 15);
+
+            }
+            else{
+                Log.d("NO-RESULT","NO-RESULT");
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            Log.d("NO-RESULT","NO-RESULT");
+        }
     }
 
     LocationRequest mLocationRequest;
