@@ -16,7 +16,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.bigapp_fmarket_locator.Retrofit.APIService;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -28,7 +27,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-
 
 import java.io.IOException;
 import java.util.List;
@@ -104,6 +102,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     void geoLocateByString(String location) throws IOException {
         Geocoder gc = new Geocoder(this);
+        location = location.replaceAll("&", " ")
+                .replaceAll("and", " ");
         List<Address> list = gc.getFromLocationName(location, 1);
         Address address = list.get(0);
         String locality = address.getLocality();
