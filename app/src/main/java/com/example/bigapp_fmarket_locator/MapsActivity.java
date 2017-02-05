@@ -1,5 +1,4 @@
 package com.example.bigapp_fmarket_locator;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +26,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
 import java.util.List;
@@ -35,13 +35,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public static final String EXTRA_MARKET_NAME = "extra_market_name";
 
+
     private GoogleMap mMap;
     private GoogleApiClient mgoogleApiClient;
     private String marketName;
     private EditText et;
+    private String address;
 
     public static void startActivity(Context context, String marketName) {
-        context.startActivity(new Intent().putExtra(EXTRA_MARKET_NAME, marketName));
+        Intent intent = new Intent(context, MapsActivity.class);
+        context.startActivity(intent.putExtra(EXTRA_MARKET_NAME, marketName));
     }
 
     @Override
@@ -64,20 +67,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
         gotToLocationZoom(40.739194, -73.930890, 15);
 
-        mgoogleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(LocationServices.API)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .build();
-        mgoogleApiClient.connect();
+//        mgoogleApiClient = new GoogleApiClient.Builder(this)
+//                .addApi(LocationServices.API)
+//                .addConnectionCallbacks(this)
+//                .addOnConnectionFailedListener(this)
+//                .build();
+//        mgoogleApiClient.connect();
 
-        if (marketName != null) {
-            try {
-                geoLocateByString(marketName);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+
+
+//        if (marketName != null) {
+//            try {
+//                geoLocateByString(marketName);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     public void gotToLocation(double lat, double lng) {
@@ -91,6 +96,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng ll = new LatLng(lat, lng);
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll, zoom);
         mMap.moveCamera(update);
+
+
+
+
     }
 
     public void geoLocate(View view) throws IOException {
@@ -100,6 +109,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     void geoLocateByString(String location) throws IOException {
         Geocoder gc = new Geocoder(this);
+        location = location.replaceAll("&", " ")
+                .replaceAll("and", " ");
         List<Address> list = gc.getFromLocationName(location, 1);
         Address address = list.get(0);
         String locality = address.getLocality();
@@ -109,6 +120,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         double lat = address.getLatitude();
         double lng = address.getLongitude();
         gotToLocationZoom(lat, lng, 15);
+
+
+        MarkerOptions options = new MarkerOptions()
+                                .title(locality)
+                                .position(new LatLng(lat, lng));
+        mMap.addMarker(options);
     }
 
     LocationRequest mLocationRequest;
