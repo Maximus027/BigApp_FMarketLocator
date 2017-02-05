@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.example.bigapp_fmarket_locator.RecyclerView.MarketAdapter;
 import com.example.bigapp_fmarket_locator.Retrofit.APIService;
@@ -24,6 +25,9 @@ public class MarketListActivity extends AppCompatActivity {
     private APIService apiService;
     private static final String TAG = MarketListActivity.class.getName();
     private RecyclerView recyclerView;
+    private String marketName;
+    private View textViewMarketName;
+    private String address;
 
 
 
@@ -57,11 +61,14 @@ public class MarketListActivity extends AppCompatActivity {
                     //// TODO: 2/3/17 toast call failure to user
             }
         });
-
-
-
-
-
-
     }
+
+//    public void startMarketActivity(View view) {
+////        textViewMarketName = findViewById(R.id.market_name_tv);
+//        TextView marketName = (TextView) view.findViewById(R.id.market_name_tv);
+//        MapsActivity.startActivity(this, (String) marketName.getText());
+////        Intent intent = new Intent(this, MapsActivity.class);
+////        intent.putExtra(getString(R.string.chosen_borough_key), marketName);
+////        startActivity(intent);
+//    }
 }

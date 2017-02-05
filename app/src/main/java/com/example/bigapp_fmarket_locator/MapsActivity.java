@@ -1,5 +1,7 @@
 package com.example.bigapp_fmarket_locator;
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -18,7 +20,6 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
-import com.example.bigapp_fmarket_locator.Retrofit.APIService;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -31,15 +32,30 @@ import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
+    public static final String EXTRA_MARKET_NAME = "extra_market_name";
+
 
     private GoogleMap mMap;
     private GoogleApiClient mgoogleApiClient;
+    private String marketName;
+    private EditText et;
+    private String address;
+
+    public static void startActivity(Context context, String marketName) {
+        Intent intent = new Intent(context, MapsActivity.class);
+        context.startActivity(intent.putExtra(EXTRA_MARKET_NAME, marketName));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        marketName = getIntent().getStringExtra(EXTRA_MARKET_NAME);
+        et = (EditText) findViewById(R.id.edit_text);
 
+        if (marketName != null) {
+            et.setText(marketName);
+        }
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -56,6 +72,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addOnConnectionFailedListener(this)
                 .build();
         mgoogleApiClient.connect();
+
+//        if (marketName != null) {
+//            try {
+//                geoLocateByString(marketName);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     public void gotToLocation(double lat, double lng) {
@@ -72,9 +96,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void geoLocate(View view) throws IOException {
-        EditText et = (EditText) findViewById(R.id.edit_text);
         String location = et.getText().toString();
+        geoLocateByString(location);
+    }
 
+    void geoLocateByString(String location) throws IOException {
         Geocoder gc = new Geocoder(this);
         List<Address> list = gc.getFromLocationName(location, 1);
         Address address = list.get(0);
@@ -121,9 +147,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onLocationChanged(Location location) {
-        if(location == null){
+        if (location == null) {
             Toast.makeText(this, "can't get current location", Toast.LENGTH_LONG).show();
-        }else {
+        } else {
             LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
 
         }
