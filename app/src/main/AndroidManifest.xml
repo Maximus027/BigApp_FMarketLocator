@@ -47,7 +47,7 @@
 
         <activity android:name=".MarketListActivity"
 
-            android:label="MarketList"/>
+            android:label="Market List"/>
 
     </application>
 
