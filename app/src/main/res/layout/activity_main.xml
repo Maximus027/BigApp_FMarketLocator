@@ -17,6 +17,20 @@
         android:background="@drawable/bg3green"
         android:gravity="center">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp">
+
+            <ImageView
+                android:id="@+id/bee_im"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/maya_big"/>
+
+        </LinearLayout>
+
+
         <TextView
             android:layout_width="175dp"
             android:layout_height="wrap_content"

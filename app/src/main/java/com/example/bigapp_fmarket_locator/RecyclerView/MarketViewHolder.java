@@ -1,12 +1,13 @@
 package com.example.bigapp_fmarket_locator.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.bigapp_fmarket_locator.MapsActivity;
 import com.example.bigapp_fmarket_locator.R;
 import com.example.bigapp_fmarket_locator.Retrofit.MainJSONObjects;
 
@@ -45,7 +46,12 @@ public class MarketViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MapsActivity.startActivity(v.getContext(), vhMarket.getStreetAddress());
+                Uri gmmIntentUri = Uri.parse("geo:40.739194,-73.930890?q=" + Uri.encode(vhMarket.getStreetAddress()));
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                if (mapIntent.resolveActivity(v.getContext().getPackageManager()) != null) {
+                    v.getContext().startActivity(mapIntent);
+                }
             }
         });
     }

@@ -29,6 +29,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
 import java.util.List;
@@ -130,6 +131,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Log.d("LAT", returnedAddress.getLatitude()+"");
                 double lng = returnedAddress.getLongitude();
                 gotToLocationZoom(lat, lng, 15);
+
+
+                MarkerOptions options = new MarkerOptions().title(address).position(new LatLng (lat, lng));
+                mMap.addMarker((options));
+
 
             }
             else{
