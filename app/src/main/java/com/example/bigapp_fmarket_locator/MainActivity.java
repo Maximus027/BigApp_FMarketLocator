@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         boroughChooser = (Spinner) findViewById(R.id.planets_spinner);
+
     }
 
     public void startMarketActivity(View view) {
