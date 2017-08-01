@@ -1,4 +1,4 @@
-package com.example.bigapp_fmarket_locator.RecyclerView;
+package com.example.farmers_market_locator.RecyclerView;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -6,9 +6,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.bigapp_fmarket_locator.MapsActivity;
-import com.example.bigapp_fmarket_locator.R;
-import com.example.bigapp_fmarket_locator.Retrofit.MainJSONObjects;
+import com.example.farmers_market_locator.MapsActivity;
+import com.example.farmers_market_locator.R;
+import com.example.farmers_market_locator.Retrofit.MainJSONObjects;
 
 /**
  * Created by maxrosado on 2/1/17.

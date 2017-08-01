@@ -13,7 +13,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        tools:context="com.example.bigapp_fmarket_locator.MapsActivity" />
+        tools:context="com.example.farmers_market_locator.MapsActivity" />
 
     <EditText
         android:id="@+id/edit_text"

@@ -1,4 +1,4 @@
-package com.example.bigapp_fmarket_locator;
+package com.example.farmers_market_locator;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,12 +7,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
-import android.view.View;
 
-import com.example.bigapp_fmarket_locator.RecyclerView.MarketAdapter;
-import com.example.bigapp_fmarket_locator.Retrofit.APIService;
-import com.example.bigapp_fmarket_locator.Retrofit.MainJSONObjects;
-import com.example.bigapp_fmarket_locator.Retrofit.RetrofitBuilder;
+import com.example.farmers_market_locator.RecyclerView.MarketAdapter;
+import com.example.farmers_market_locator.Retrofit.APIService;
+import com.example.farmers_market_locator.Retrofit.MainJSONObjects;
+import com.example.farmers_market_locator.Retrofit.RetrofitBuilder;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,13 +23,7 @@ import retrofit2.Response;
 
 public class MarketListActivity extends AppCompatActivity {
     private APIService apiService;
-    private static final String TAG = MarketListActivity.class.getName();
     private RecyclerView recyclerView;
-    private String marketName;
-    private View textViewMarketName;
-    private String address;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
