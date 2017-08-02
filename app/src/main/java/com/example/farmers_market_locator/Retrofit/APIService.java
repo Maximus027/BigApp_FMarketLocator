@@ -1,4 +1,4 @@
-package com.example.bigapp_fmarket_locator.Retrofit;
+package com.example.farmers_market_locator.Retrofit;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

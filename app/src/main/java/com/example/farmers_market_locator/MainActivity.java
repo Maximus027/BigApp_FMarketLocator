@@ -1,4 +1,4 @@
-package com.example.bigapp_fmarket_locator;
+package com.example.farmers_market_locator;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.bigapp_fmarket_locator.MainActivity">
+    tools:context="com.example.farmers_market_locator.MainActivity">
 
 
     <LinearLayout

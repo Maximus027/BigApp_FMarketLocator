@@ -1,4 +1,4 @@
-package com.example.bigapp_fmarket_locator.Retrofit;
+package com.example.farmers_market_locator.Retrofit;
 
 /**
  * Created by maxrosado on 2/1/17.
